@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <!-- The entire page has a class with value row , out of 12 col , 3 is taken by header and 9 taken by body -->
     <div class="row min-vh-100 no-gutters">
       <header
         class="col-12 col-lg-3 bg-dark text-light d-flex flex-column p-4 p-lg-3"
@@ -36,10 +37,52 @@
           quis iste?
         </p>
       </header>
+      <!--main content of the app . all the task status  ul will be created here-->
       <main class="col-12 col-lg-9">
-        <div class="m-5">
-          <h2>To Do</h2>
-          <ul id="list-toDo" class="list-group"></ul>
+        <div class="m-5 row justify-content-around">
+          <!-- todo starts -->
+          <div class="col-12 col-md-6 col-xl-3 mb-3">
+            <h2>To Do</h2>
+            <ul id="list-toDo" class="list-group"></ul>
+          </div>
+          <!-- todo ends -->
+
+          <!-- inProgress starts -->
+          <div class="col-12 col-md-6 col-xl-3 mb-3">
+            <h2>In Progress</h2>
+            <ul id="list-inProgress" class="list-group">
+              <li class="list-group-item">
+                <span class="badge badge-primary bage-pill">05/28/2020</span>
+                <p class="m-1">Sample task in progress</p>
+              </li>
+            </ul>
+          </div>
+          <!-- in progress end -->
+
+          <!-- in review starts -->
+          <div class="col-12 col-md-6 col-xl-3 mb-3">
+            <h2>In Review</h2>
+            <ul id="list-inReview" class="list-group">
+              <li class="list-group-item">
+                <span class="badge badge-primary badge-pill"> 05/28/2020 </span>
+                <p class="m-1">Sample task in review</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- in review ends -->
+
+          <!-- done starts -->
+          <div class="col-12 col-md-6 col-xl-3 mb-3">
+            <h2>Done</h2>
+            <ul id="list-done" class="list-group">
+              <li class="list-group-item">
+                <span class="badge badge-primary badge-pill">05/28/2020</span>
+                <p class="m-1">Sample task that's done</p>
+              </li>
+            </ul>
+          </div>
+          <!-- done end -->
         </div>
       </main>
     </div>
