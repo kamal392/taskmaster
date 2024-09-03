@@ -16,7 +16,7 @@
     <!-- The entire page has a class with value row , out of 12 col , 3 is taken by header and 9 taken by body -->
     <div class="row min-vh-100 no-gutters">
       <header
-        class="col-12 col-lg-3 bg-dark text-light d-flex flex-column p-4 p-lg-3"
+        class="col-12 col-lg-3 bg-dark text-light sticky-top d-flex flex-column p-4 p-lg-3"
       >
         <h1 class="text-center">Taskmaster</h1>
         <button
@@ -30,7 +30,8 @@
         <button id="remove-tasks" class="btn btn-block btn-danger">
           Delete All Tasks
         </button>
-        <p class="mt-auto">
+
+        <p class="mt-auto d-none d-lg-block">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi voluptas
           architecto ipsa excepturi aut non laudantium sequi fugit officiis
           optio deleniti asperiores rem eius laborum maxime blanditiis culpa,
@@ -38,14 +39,14 @@
         </p>
       </header>
       <!--main content of the app . all the task status  ul will be created here-->
-      <main class="col-12 col-lg-9">
+      <main class="col-12 col-lg-9 d-flex flex-column">
         <div class="m-5 row justify-content-around">
           <!-- todo starts -->
 
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <!-- adding a card to the list item so that the list looks nicer with the header -->
             <div class="card">
-              <h4 class="card-header">To Do</h4>
+              <h4 class="card-header bg-dark text-light">To Do</h4>
               <ul id="list-toDo" class="list-group"></ul>
             </div>
           </div>
@@ -54,13 +55,8 @@
           <!-- inProgress starts -->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <div class="card">
-              <h4 class="card-header">In Progress</h4>
-              <ul id="list-inProgress" class="list-group">
-                <li class="list-group-item">
-                  <span class="badge badge-primary bage-pill">05/28/2020</span>
-                  <p class="m-1">Sample task in progress</p>
-                </li>
-              </ul>
+              <h4 class="card-header bg-dark text-light">In Progress</h4>
+              <ul id="list-inProgress" class="list-group"></ul>
             </div>
           </div>
           <!-- in progress end -->
@@ -68,15 +64,8 @@
           <!-- in review starts -->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <div class="card">
-              <h4 class="card-header">In Review</h4>
-              <ul id="list-inReview" class="list-group">
-                <li class="list-group-item">
-                  <span class="badge badge-primary badge-pill">
-                    05/28/2020
-                  </span>
-                  <p class="m-1">Sample task in review</p>
-                </li>
-              </ul>
+              <h4 class="card-header bg-dark text-light">In Review</h4>
+              <ul id="list-inReview" class="list-group"></ul>
             </div>
           </div>
 
@@ -85,16 +74,18 @@
           <!-- done starts -->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <div class="card">
-              <h4 class="card-header">Done</h4>
-              <ul id="list-done" class="list-group">
-                <li class="list-group-item">
-                  <span class="badge badge-primary badge-pill">05/28/2020</span>
-                  <p class="m-1">Sample task that's done</p>
-                </li>
-              </ul>
+              <h4 class="card-header bg-dark text-light">Done</h4>
+              <ul id="list-done" class="list-group"></ul>
             </div>
           </div>
           <!-- done end -->
+        </div>
+        <!-- trash element -->
+        <!-- mt-auto class pushes the element to the bottom of the page -->
+        <div id="trash" class="mt-auto">
+          <div class="w-100 bg-danger p-3 text-center text-light display-4">
+            Drop Here to Remove.
+          </div>
         </div>
       </main>
     </div>
