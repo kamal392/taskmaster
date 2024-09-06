@@ -52,7 +52,7 @@ var saveTasks = function () {
 
 $(".list-group").on("click", "p", function () {
   // console.log("<p> was clicked");
-  // here "this" refers to the selected element which
+  // here "this" refers to the selected element which is p here.
   // console.log(this);
   var text = $(this).text().trim();
   // create a textarea element.
@@ -165,3 +165,45 @@ $("#remove-tasks").on("click", function () {
 
 // load tasks for the first time
 loadTasks();
+
+// using jquery UI to sort the list items inside the ul.
+// we are going to select the ul by its class
+// The jQuery UI method, sortable(), turned every element with
+//  the class list-group into a sortable list.
+//The connectWith property then linked these sortable lists with any other
+// lists that have the same class.
+$(".card .list-group").sortable({
+  connectWith: $(".card .list-group"),
+  scroll: false,
+  tolerance: "pointer",
+  helper: "clone",
+  activate: function (event) {
+    // console.log("activate", this);
+  },
+  deactivate: function (event) {
+    // console.log("deactivate", this);
+  },
+  over: function (event) {
+    // console.log("over", event.target);
+  },
+  out: function (event) {
+    // console.log("out", event.target);
+  },
+  update: function (event) {
+    // array to store the task data after we drag the list item and drop it to the new colomn.
+    var tempArr = [];
+
+    // here this is ul and children are li ,
+    //loop over current set of children in sortable list.
+    $(this)
+      .children()
+      .each(function () {
+        var text = $(this).find("p").text().trim();
+        var date = $(this).find("span").text().trim();
+        //add task data to the temp array as an object
+        tempArr.push({ text: text, date: date });
+        console.log(tempArr);
+      });
+    //trim down list's ID to match object property
+  },
+});
