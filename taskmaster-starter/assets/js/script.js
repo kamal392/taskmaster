@@ -207,3 +207,24 @@ $(".card .list-group").sortable({
     //trim down list's ID to match object property
   },
 });
+
+// convert trash into a droppable
+
+$("#trash").droppable({
+  accept: ".card .list-group-item",
+  tolerance: "touch",
+  // here ui is an jquery object which has property called draggable.
+  // draggable is a jQuery object representing the draggable element
+  drop: function (event, ui) {
+    // console.log("drop");
+    ui.draggable.remove();
+    //no need to call the saveTask(). removing task from the list triggers a sortable update(),
+    // meaning sortable task calls SaveTask() for us.
+  },
+  over: function (event, ui) {
+    console.log("over");
+  },
+  out: function (event, ui) {
+    console.log("out");
+  },
+});
