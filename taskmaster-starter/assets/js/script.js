@@ -280,3 +280,14 @@ $("#remove-tasks").on("click", function () {
 
 // load tasks for the first time
 loadTasks();
+
+// setInterval() to run the audit function every 30 mins to see if the
+// due date is close or has passed incase the user left the app open for sometime
+// without refreshing the page.
+setInterval(function () {
+  // jquery selector passed each element it finds using the selector into the callback
+  //function, and that element is expressed in the el argument of the function.
+  $(".card .list-group-item").each(function (index, el) {
+    auditTask(console.log(el));
+  });
+}, 1000 * 60 * 30);
