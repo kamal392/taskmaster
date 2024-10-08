@@ -4,16 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- Add the style sheet here -->
+
+     <!-- add jquery ui built on JQuery cdn to add datepicker ,sortable and droppable widget provided by jQuery ui -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css"
     />
+    <!-- add bootstrap  -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
     />
+    <!-- add font to the app from google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth@75&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
+    <!-- add icons to the app like +,trash icon etc -->
+    <!-- add cdn link to use icon from bootstrap icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- add style sheet for custom style  -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+
     <title>Taskmaster</title>
   </head>
 
@@ -23,20 +40,29 @@
       <header
         class="col-12 col-lg-3 bg-dark text-light sticky-top d-flex flex-column p-4 p-lg-3"
       >
-        <h1 class="text-center">Taskmaster</h1>
+        <h1 class="text-center">
+          <i class="bi bi-check2-square d-inline d-lg-none"></i>Taskmaster
+        </h1>
         <button
           id="create-task"
           class="btn btn-block btn-success"
           data-toggle="modal"
           data-target="#task-form-modal"
         >
+          <!-- add + icon using bootstrap icon -->
+          <i class="bi bi-plus"></i>
           Add Task
         </button>
         <button id="remove-tasks" class="btn btn-block btn-danger">
+          <!-- add trash icon using bootstrap-->
+          <i class="bi bi-trash"></i>
           Delete All Tasks
         </button>
-
-        <p class="mt-auto d-none d-lg-block">
+        <!-- add check icon using bootstrap icon -->
+        <i
+          class="bi bi-check2-square display-1 text-center mb-2 d-none d-lg-block mt-auto"
+        ></i>
+        <p class="d-none d-lg-block">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi voluptas
           architecto ipsa excepturi aut non laudantium sequi fugit officiis
           optio deleniti asperiores rem eius laborum maxime blanditiis culpa,
@@ -87,14 +113,19 @@
         <!-- trash element -->
         <!-- mt-auto class pushes the element to the bottom of the page -->
         <div id="trash" class="mt-auto">
-          <div class="w-100 bg-danger p-3 text-center text-light display-4">
+          <div class="w-100 bg-danger p-3 text-center text-light  display-4">
+            <!-- add trash icon using bootstrap -->
+            <i class="bi bi-trash"></i>
             Drop Here to Remove.
+          </div>
+        
           </div>
         </div>
       </main>
     </div>
 
     <!-- Modal -->
+     <!-- Modal contains form ,which pops up on the screen when a user click on add task button. -->
     <div
       class="modal fade"
       id="task-form-modal"
@@ -116,6 +147,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+          <!-- modal body that has form-->
           <div class="modal-body">
             <form>
               <div class="form-group">
@@ -126,6 +158,7 @@
                   class="form-control"
                 ></textarea>
               </div>
+              <!-- due data -->
               <div class="form-group">
                 <label for="modalDueDate">Due date</label>
                 <input
@@ -138,6 +171,7 @@
               </div>
             </form>
           </div>
+          <!-- form footer that has close and save task button -->
           <div class="modal-footer">
             <button
               type="button"

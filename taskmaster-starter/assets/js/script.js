@@ -75,45 +75,50 @@ var auditTask = function (taskEl) {
 //The connectWith property then linked these sortable lists with any other
 // lists that have the same class.
 $(".card .list-group").sortable({
-  // enable dragging across lists
   connectWith: $(".card .list-group"),
   scroll: false,
   tolerance: "pointer",
   helper: "clone",
   activate: function (event, ui) {
     $(this).addClass("dropover");
-    $(".bottom-trash").addClass("bottom-trash-drag");
+    // console.log("activate", this);
   },
   deactivate: function (event, ui) {
+    // console.log("deactivate", this);
     $(this).removeClass("dropover");
-    $(".bottom-trash").removeClass("bottom-trash-drag");
   },
   over: function (event) {
+    // console.log("over", event.target);
     $(event.target).addClass("dropover-active");
   },
   out: function (event) {
+    // console.log("out", event.target);
     $(event.target).removeClass("dropover-active");
   },
-  update: function () {
+  update: function (event) {
+    // array to store the task data after we drag the list item and drop it to the new colomn.
     var tempArr = [];
 
-    // loop over current set of children in sortable list
+    // here this is ul and children are li ,
+    //loop over current set of children in sortable list.
     $(this)
       .children()
       .each(function () {
-        // save values in temp array
-        tempArr.push({
-          text: $(this).find("p").text().trim(),
-          date: $(this).find("span").text().trim(),
-        });
+        var text = $(this).find("p").text().trim();
+        var date = $(this).find("span").text().trim();
+        //add task data to the temp array as an object
+        tempArr.push({ text: text, date: date });
+        console.log(tempArr);
       });
-
-    // trim down list's ID to match object property
+    //trim down list's ID to match object property
     var arrName = $(this).attr("id").replace("list-", "");
 
     // update array on tasks object and save
     tasks[arrName] = tempArr;
     saveTasks();
+  },
+  stop: function (event) {
+    $(this).removeClass("dropover");
   },
 });
 
