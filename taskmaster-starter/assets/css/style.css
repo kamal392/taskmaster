@@ -1,3 +1,45 @@
 ul.list-group {
   min-height: 130px;
 }
+/* added css from google font */
+body{
+  font-family: "Open Sans", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 75;
+}
+  /* styling headers of the task  */
+  h1,h2,h3,h4,h5{
+    font-family: "Staatliches", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+/* add style when the task get drop over */
+.dropover{
+  background-color: rgba(0,0,0,0.3);
+}
+.dropover-active{
+  background-color: rgba(0,0,0,0.9);
+}
+
+/* add custom style to trash drop box */
+/* .button-trash{
+  opacity: 0;
+  color: #f1f1f1;
+  font-size: 2.3rem;
+  font-family: "staaliches",sans-serif;
+  transform: translateY(150px);
+  transition: all .5s ease-in-out;
+  background-color: rgba(234,0,39,0.7);
+}
+
+.bottom-trash-drag{
+transform: translateY(0);
+opacity: 1;
+}
+
+.bottom-trash-active{
+  background-color: rgba(234,0,39,1);
+} */
